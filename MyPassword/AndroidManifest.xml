@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="cn.xing.mypassword"
+    android:versionCode="6"
+    android:versionName="1.4.0" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="19" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <permission android:name="cn.xing.myPassword" />
+
+    <application
+        android:name="cn.xing.mypassword.app.MyApplication"
+        android:allowBackup="false"
+        android:hardwareAccelerated="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="533592ec56240b225e030413" />
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="0" />
+
+        <!-- 主界面 -->
+        <activity
+            android:name="cn.xing.mypassword.activity.MainActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!-- 启动界面：欢迎页 -->
+        <activity
+            android:name="cn.xing.mypassword.activity.EntryActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name="cn.xing.mypassword.service.MainService"
+            android:label="@string/app_name"
+            android:permission="cn.xing.myPassword" >
+            <intent-filter>
+                <action android:name="cn.xing.mypassword" />
+            </intent-filter>
+        </service>
+
+        <!-- 增加、修改密码界面 -->
+        <activity
+            android:name="cn.xing.mypassword.activity.EditPasswordActivity"
+            android:label="@string/title_activity_add_password"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateVisible|adjustResize" >
+        </activity>
+        
+        <!-- 设置图案解锁界面 -->
+        <activity
+            android:name="cn.xing.mypassword.activity.SetLockpatternActivity"
+            android:label="@string/drawer_login_password"
+            android:screenOrientation="portrait" >
+        </activity>
+    </application>
+
+</manifest>

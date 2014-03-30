@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="cn.xing.mypassword.MainActivity" >
+
+    <item
+        android:id="@+id/action_add_password"
+        android:icon="@drawable/ic_action_add"
+        android:orderInCategory="10"
+        android:showAsAction="always"
+        android:title="@string/action_add_password"/>
+
+</menu>
