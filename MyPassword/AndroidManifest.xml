@@ -69,7 +69,7 @@
         <!-- 设置图案解锁界面 -->
         <activity
             android:name="cn.xing.mypassword.activity.SetLockpatternActivity"
-            android:label="@string/drawer_login_password"
+            android:label="@string/action_login_password"
             android:screenOrientation="portrait" >
         </activity>
     </application>

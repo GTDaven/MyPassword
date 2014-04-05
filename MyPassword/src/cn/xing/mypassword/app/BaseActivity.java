@@ -17,6 +17,11 @@ public class BaseActivity extends Activity
 		Log.d(getClass().getSimpleName(), "onCreate()");
 	}
 
+	public BaseActivity getActivity()
+	{
+		return this;
+	}
+	
 	@Override
 	protected void onResume()
 	{

@@ -3,6 +3,34 @@
     tools:context="cn.xing.mypassword.MainActivity" >
 
     <item
+        android:id="@+id/action_main_setting"
+        android:icon="@drawable/ic_action_more"
+        android:showAsAction="always"
+        android:title="@string/action_more">
+        <menu>
+            <item
+                android:id="@+id/action_set_lock_pattern"
+                android:icon="@drawable/ic_action_lock"
+                android:title="@string/action_login_password">
+            </item>
+            <item
+                android:id="@+id/action_import_and_export"
+                android:icon="@drawable/ic_action_import_export"
+                android:title="@string/action_import_and_export">
+            </item>
+            <item
+                android:id="@+id/action_set_effect"
+                android:icon="@drawable/ic_action_effect"
+                android:title="@string/action_jazzy_effect">
+            </item>
+            <item
+                android:id="@+id/action_about"
+                android:icon="@drawable/ic_action_about"
+                android:title="@string/action_about_us">
+            </item>
+        </menu>
+    </item>
+    <item
         android:id="@+id/action_add_password"
         android:icon="@drawable/ic_action_add"
         android:orderInCategory="10"
