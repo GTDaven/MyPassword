@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.Toast;
 import cn.xing.mypassword.model.SettingKey;
 
 import com.umeng.analytics.MobclickAgent;
@@ -21,12 +22,12 @@ public class BaseActivity extends Activity
 	{
 		return this;
 	}
-	
+
 	@Override
 	protected void onResume()
 	{
 		super.onResume();
-		//友盟统计
+		// 友盟统计
 		MobclickAgent.onResume(this);
 	}
 
@@ -34,7 +35,7 @@ public class BaseActivity extends Activity
 	protected void onPause()
 	{
 		super.onPause();
-		//友盟统计
+		// 友盟统计
 		MobclickAgent.onPause(this);
 	}
 
@@ -43,6 +44,11 @@ public class BaseActivity extends Activity
 	{
 		super.onDestroy();
 		Log.d(getClass().getSimpleName(), "onDestroy()");
+	}
+
+	public void showToast(int id)
+	{
+		Toast.makeText(this, id, Toast.LENGTH_SHORT).show();
 	}
 
 	public MyApplication getMyApplication()

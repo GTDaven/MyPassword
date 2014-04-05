@@ -10,6 +10,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -19,8 +20,16 @@ import cn.xing.mypassword.model.SettingKey;
 
 import com.umeng.analytics.MobclickAgent;
 
+/**
+ * 主界面
+ * 
+ * @author zengdexing
+ * 
+ */
 public class MainActivity extends BaseActivity
 {
+	private long lastBackKeyTime;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
@@ -62,6 +71,27 @@ public class MainActivity extends BaseActivity
 	{
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
+	}
+
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event)
+	{
+		switch (keyCode)
+		{
+			case KeyEvent.KEYCODE_BACK:
+				long delay = Math.abs(System.currentTimeMillis() - lastBackKeyTime);
+				if (delay > 4000)
+				{
+					showToast(R.string.toast_key_back);
+					lastBackKeyTime = System.currentTimeMillis();
+					return true;
+				}
+				break;
+
+			default:
+				break;
+		}
+		return super.onKeyDown(keyCode, event);
 	}
 
 	private void onEffectClick()

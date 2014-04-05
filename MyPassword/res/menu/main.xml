@@ -3,7 +3,6 @@
     tools:context="cn.xing.mypassword.MainActivity" >
 
     <item
-        android:id="@+id/action_main_setting"
         android:icon="@drawable/ic_action_more"
         android:showAsAction="always"
         android:title="@string/action_more">

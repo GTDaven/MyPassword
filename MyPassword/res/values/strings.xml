@@ -48,5 +48,7 @@
     <string name="set_lock_pattern_second_step_tips">设置成功，请牢记你的解锁图案</string>
     <string name="set_lock_pattern_step_tips">完成后松开手指</string>
     <string name="no_password_tips">你还没有保存过密码\n点击右上角图标增加几个吧</string>
+   
+    <string name="toast_key_back">再按一次 退出程序</string>
 
 </resources>
