@@ -21,7 +21,7 @@ import cn.xing.mypassword.model.SettingKey;
 import com.umeng.analytics.MobclickAgent;
 
 /**
- * ä¸»ç•Œé¢
+ * Ö÷½çÃæ
  * 
  * @author zengdexing
  * 
@@ -48,7 +48,6 @@ public class MainActivity extends BaseActivity
 				break;
 
 			case R.id.action_import_and_export:
-				// TODO å¯¼å…¥å¯¼å‡º
 				break;
 			case R.id.action_set_lock_pattern:
 				startActivity(new Intent(this, SetLockpatternActivity.class));
@@ -82,6 +81,7 @@ public class MainActivity extends BaseActivity
 				long delay = Math.abs(System.currentTimeMillis() - lastBackKeyTime);
 				if (delay > 4000)
 				{
+					// Ë«»÷ÍË³ö³ÌĞò
 					showToast(R.string.toast_key_back);
 					lastBackKeyTime = System.currentTimeMillis();
 					return true;
@@ -112,6 +112,11 @@ public class MainActivity extends BaseActivity
 		builder.show();
 	}
 
+	/**
+	 * ÓÑÃËµÄÊÂ¼şÍ³¼Æ¡°effect¡±
+	 * 
+	 * @param effect
+	 */
 	private void onEventEffect(String effect)
 	{
 		HashMap<String, String> map = new HashMap<String, String>();
@@ -120,7 +125,7 @@ public class MainActivity extends BaseActivity
 	}
 
 	/**
-	 * å…³äºçš„ç‚¹å‡»äº‹ä»¶
+	 * ¹ØÓÚ¶Ô»°¿ò
 	 */
 	private void onAboutClick()
 	{
@@ -137,7 +142,7 @@ public class MainActivity extends BaseActivity
 	}
 
 	/**
-	 * è·å¾—å½“å‰ç‰ˆæœ¬
+	 * »ñµÃ°æ±¾ºÅ
 	 * 
 	 * @return
 	 */

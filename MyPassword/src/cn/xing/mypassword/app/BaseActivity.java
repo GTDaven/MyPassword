@@ -27,7 +27,6 @@ public class BaseActivity extends Activity
 	protected void onResume()
 	{
 		super.onResume();
-		// 友盟统计
 		MobclickAgent.onResume(this);
 	}
 
@@ -35,7 +34,6 @@ public class BaseActivity extends Activity
 	protected void onPause()
 	{
 		super.onPause();
-		// 友盟统计
 		MobclickAgent.onPause(this);
 	}
 
