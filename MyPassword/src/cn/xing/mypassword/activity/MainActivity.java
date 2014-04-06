@@ -3,12 +3,17 @@ package cn.xing.mypassword.activity;
 import java.util.HashMap;
 
 import android.app.AlertDialog.Builder;
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
+import android.os.Environment;
+import android.os.IBinder;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -16,7 +21,10 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import cn.xing.mypassword.R;
 import cn.xing.mypassword.app.BaseActivity;
+import cn.xing.mypassword.dialog.ExportDialog;
+import cn.xing.mypassword.dialog.ImportDialog;
 import cn.xing.mypassword.model.SettingKey;
+import cn.xing.mypassword.service.Mainbinder;
 
 import com.umeng.analytics.MobclickAgent;
 
@@ -28,6 +36,24 @@ import com.umeng.analytics.MobclickAgent;
  */
 public class MainActivity extends BaseActivity
 {
+	/** 数据源 */
+	private Mainbinder mainbinder;
+
+	private ServiceConnection serviceConnection = new ServiceConnection()
+	{
+		@Override
+		public void onServiceDisconnected(ComponentName name)
+		{
+			mainbinder = null;
+		}
+
+		@Override
+		public void onServiceConnected(ComponentName name, IBinder service)
+		{
+			mainbinder = (Mainbinder) service;
+		}
+	};
+
 	private long lastBackKeyTime;
 
 	@Override
@@ -35,6 +61,26 @@ public class MainActivity extends BaseActivity
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+
+		Intent intent = new Intent("cn.xing.mypassword");
+		this.bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE);
+	}
+
+	@Override
+	protected void onDestroy()
+	{
+		super.onDestroy();
+		unbindService(serviceConnection);
+	}
+
+	private boolean isExistSDCard()
+	{
+		if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED))
+		{
+			return true;
+		}
+		else
+			return false;
 	}
 
 	@Override
@@ -47,16 +93,42 @@ public class MainActivity extends BaseActivity
 				startActivity(new Intent(this, EditPasswordActivity.class));
 				break;
 
-			case R.id.action_import_and_export:
+			case R.id.action_import:
+				// 密码导入
+				if (mainbinder == null)
+					break;
+				ImportDialog importDialog = new ImportDialog(getActivity(), mainbinder);
+				importDialog.show();
 				break;
+
+			case R.id.action_export:
+				// 密码导出
+				if (mainbinder == null)
+					break;
+				if (!isExistSDCard())
+				{
+					showToast(R.string.export_no_sdcard);
+					break;
+				}
+				ExportDialog exportDialog = new ExportDialog(this, mainbinder);
+				exportDialog.show();
+				break;
+
 			case R.id.action_set_lock_pattern:
+				// 软件锁
 				startActivity(new Intent(this, SetLockpatternActivity.class));
 				break;
 			case R.id.action_set_effect:
+				// 列表特效
 				onEffectClick();
 				break;
 			case R.id.action_about:
+				// 关于
 				onAboutClick();
+				break;
+			case R.id.action_exit:
+				// 退出
+				finish();
 				break;
 
 			default:

@@ -13,6 +13,12 @@ public abstract class AsyncSingleTask<D>
 
 	private AsyncResult<D> asyncResult;
 	private boolean isRunned = false;
+	private int delay = 0;
+
+	public void setDelay(int delay)
+	{
+		this.delay = delay;
+	}
 
 	public synchronized void execute()
 	{
@@ -29,7 +35,7 @@ public abstract class AsyncSingleTask<D>
 		public void run()
 		{
 			asyncResult = doInBackground(new AsyncResult<D>());
-			handler.post(mainThreadRunable);
+			handler.postDelayed(mainThreadRunable, delay);
 		}
 	};
 
@@ -38,11 +44,11 @@ public abstract class AsyncSingleTask<D>
 		@Override
 		public void run()
 		{
-			runOnMainThread(asyncResult);
+			runOnUIThread(asyncResult);
 		}
 	};
 
 	protected abstract AsyncResult<D> doInBackground(AsyncResult<D> asyncResult);
 
-	protected abstract void runOnMainThread(AsyncResult<D> asyncResult);
+	protected abstract void runOnUIThread(AsyncResult<D> asyncResult);
 }
