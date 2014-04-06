@@ -33,7 +33,7 @@ public class Mainbinder extends Binder
 			}
 
 			@Override
-			protected void runOnMainThread(AsyncResult<Void> asyncResult)
+			protected void runOnUIThread(AsyncResult<Void> asyncResult)
 			{
 				onPasswordListeners.clear();
 			}
@@ -51,7 +51,7 @@ public class Mainbinder extends Binder
 			}
 
 			@Override
-			protected void runOnMainThread(AsyncResult<Void> asyncResult)
+			protected void runOnUIThread(AsyncResult<Void> asyncResult)
 			{
 				onPasswordListeners.add(onPasswordListener);
 			}
@@ -69,7 +69,7 @@ public class Mainbinder extends Binder
 			}
 
 			@Override
-			protected void runOnMainThread(AsyncResult<Void> asyncResult)
+			protected void runOnUIThread(AsyncResult<Void> asyncResult)
 			{
 				onPasswordListeners.remove(onPasswordListener);
 			}
@@ -103,7 +103,7 @@ public class Mainbinder extends Binder
 			}
 
 			@Override
-			protected void runOnMainThread(AsyncResult<Void> asyncResult)
+			protected void runOnUIThread(AsyncResult<Void> asyncResult)
 			{
 				for (OnPasswordListener onPasswordListener : onPasswordListeners)
 				{
@@ -126,7 +126,7 @@ public class Mainbinder extends Binder
 			}
 
 			@Override
-			protected void runOnMainThread(AsyncResult<Password> asyncResult)
+			protected void runOnUIThread(AsyncResult<Password> asyncResult)
 			{
 				onGetPasswordCallback.onGetPassword(asyncResult.getData());
 			}
@@ -146,7 +146,7 @@ public class Mainbinder extends Binder
 			}
 
 			@Override
-			protected void runOnMainThread(AsyncResult<Void> asyncResult)
+			protected void runOnUIThread(AsyncResult<Void> asyncResult)
 			{
 				for (OnPasswordListener onPasswordListener : onPasswordListeners)
 				{
@@ -170,7 +170,7 @@ public class Mainbinder extends Binder
 			}
 
 			@Override
-			protected void runOnMainThread(AsyncResult<Password> asyncResult)
+			protected void runOnUIThread(AsyncResult<Password> asyncResult)
 			{
 				for (OnPasswordListener onPasswordListener : onPasswordListeners)
 				{

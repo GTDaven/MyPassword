@@ -29,7 +29,7 @@ public class GetAllPasswordTask extends AsyncSingleTask<List<Password>>
 	}
 
 	@Override
-	protected void runOnMainThread(AsyncResult<List<Password>> asyncResult)
+	protected void runOnUIThread(AsyncResult<List<Password>> asyncResult)
 	{
 		onGetAllPasswordCallback.onGetAllPassword(asyncResult.getData());
 	}
