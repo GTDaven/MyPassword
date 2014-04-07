@@ -1,5 +1,5 @@
 #我的密码
-<img src="icon.png" width="256px"/>
+<img src="MyPassword/ic_launcher-web.png" width="256px"/>
 
 * E-mail：zengdexing1989@163.com
 * File encoding：GBK
