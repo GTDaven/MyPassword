@@ -32,6 +32,7 @@ public class EntryActivity extends BaseActivity implements Callback, OnPatternLi
 
 	private final int MESSAGE_START_MAIN = 1;
 	private final int MESSAGE_CLEAR_LOCKPATTERNVIEW = 3;
+	private final int MESSAGE_START_SETLOCKPATTERN = 4;
 
 	private View backgroundView;
 	private LockPatternView lockPatternView;
@@ -51,14 +52,12 @@ public class EntryActivity extends BaseActivity implements Callback, OnPatternLi
 		if (cells.size() == 0)
 		{
 			// 首次使用，没有设置密码，跳转设置密码页
-			startActivity(new Intent(this, SetLockpatternActivity.class));
-			finish();
+			lockPatternView.setEnabled(false);
+			handler.sendEmptyMessageDelayed(MESSAGE_START_SETLOCKPATTERN, 2000);
 		}
-		else
-		{
-			tipsView.setText("");
-			initAnimation();
-		}
+
+		tipsView.setText("");
+		initAnimation();
 	}
 
 	@Override
@@ -66,6 +65,11 @@ public class EntryActivity extends BaseActivity implements Callback, OnPatternLi
 	{
 		switch (msg.what)
 		{
+			case MESSAGE_START_SETLOCKPATTERN:
+				startActivity(new Intent(this, SetLockpatternActivity.class));
+				finish();
+				break;
+
 			case MESSAGE_START_MAIN:
 				Intent intent = new Intent(this, MainActivity.class);
 				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

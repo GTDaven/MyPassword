@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.app.ActionBar;
+import android.app.AlertDialog.Builder;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -71,7 +72,17 @@ public class SetLockpatternActivity extends BaseActivity implements OnPatternLis
 		{
 			mode = MODE_FIRST_STEP;
 			textView.setText(R.string.set_lock_pattern_first_step);
+			showFirstUserDialog();
 		}
+	}
+
+	/** 第一次使用，设置解锁图案 */
+	private void showFirstUserDialog()
+	{
+		Builder builder = new Builder(this);
+		builder.setMessage(R.string.set_lock_pattern_first_message);
+		builder.setNeutralButton(R.string.set_lock_pattern_first_sure, null);
+		builder.show();
 	}
 
 	private void initView()

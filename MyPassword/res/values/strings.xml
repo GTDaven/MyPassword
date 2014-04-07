@@ -20,7 +20,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="title_activity_add_password">添 加</string>
     <string name="title_activity_modify_password">修 改</string>
-    <string name="action_save">确 定</string>
+    <string name="action_save">保存</string>
     <string name="action_more">设置</string>
     <string name="action_import_and_export">导入导出</string>
     <string name="action_login_password">解锁图案</string>
@@ -39,7 +39,9 @@
     <string name="copyright_description">Copyright © 2014 zengdexing.\nAll Rights Reserved.</string>
     <string name="drawer_about_detail">zengdexing1989@163.com\nVersion: %s\nCopyright © 2014 zengdexing.\nAll Rights Reserved.</string>
     <string name="lock_pattern_error">图案错误</string>
-    <string name="set_lock_pattern_auth">请输入解锁图案</string>
+    <string name="set_lock_pattern_first_message">第一次使用软件，请设置解锁图案</string>
+    <string name="set_lock_pattern_first_sure">确 定</string>
+    <string name="set_lock_pattern_auth">请输入原解锁图案</string>
     <string name="set_lock_pattern_auth_ok">认证通过</string>
     <string name="set_lock_pattern_auth_error">图案错误，请重试</string>
     <string name="set_lock_pattern_first_step">请绘制解锁图案</string>
