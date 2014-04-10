@@ -11,11 +11,38 @@ import com.umeng.analytics.MobclickAgent;
 
 public class BaseActivity extends Activity
 {
+	protected final boolean DEBUG = Config.DEBUG;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
-		Log.d(getClass().getSimpleName(), "onCreate()");
+		if (DEBUG)
+			logI("onCreate()");
+	}
+
+	@Override
+	protected void onResume()
+	{
+		super.onResume();
+		if (!DEBUG)
+			MobclickAgent.onResume(this);
+	}
+
+	@Override
+	protected void onPause()
+	{
+		super.onPause();
+		if (!DEBUG)
+			MobclickAgent.onPause(this);
+	}
+
+	@Override
+	protected void onDestroy()
+	{
+		super.onDestroy();
+		if (DEBUG)
+			logI("onDestroy()");
 	}
 
 	public BaseActivity getActivity()
@@ -23,25 +50,24 @@ public class BaseActivity extends Activity
 		return this;
 	}
 
-	@Override
-	protected void onResume()
+	protected void logI(String msg)
 	{
-		super.onResume();
-		MobclickAgent.onResume(this);
+		Log.i(getClass().getSimpleName(), msg);
 	}
 
-	@Override
-	protected void onPause()
+	protected void logD(String msg)
 	{
-		super.onPause();
-		MobclickAgent.onPause(this);
+		Log.d(getClass().getSimpleName(), msg);
 	}
 
-	@Override
-	protected void onDestroy()
+	protected void logE(String msg)
 	{
-		super.onDestroy();
-		Log.d(getClass().getSimpleName(), "onDestroy()");
+		Log.e(getClass().getSimpleName(), msg);
+	}
+
+	protected void logW(String msg)
+	{
+		Log.w(getClass().getSimpleName(), msg);
 	}
 
 	public void showToast(int id)

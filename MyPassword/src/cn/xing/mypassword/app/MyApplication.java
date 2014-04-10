@@ -22,6 +22,11 @@ public class MyApplication extends Application implements OnSharedPreferenceChan
 	public void onCreate()
 	{
 		super.onCreate();
+		loadSettings();
+	}
+
+	private void loadSettings()
+	{
 		sharedPreferences = getSharedPreferences("settings", Context.MODE_MULTI_PROCESS);
 		sharedPreferences.registerOnSharedPreferenceChangeListener(this);
 	}
@@ -41,8 +46,7 @@ public class MyApplication extends Application implements OnSharedPreferenceChan
 	}
 
 	/**
-	 * 保存设置，调用该方法后会产生
-	 * {@link OnSettingChangeListener#onSettingChange(SettingKey)}回调。
+	 * 保存设置，调用该方法后会产生 {@link OnSettingChangeListener#onSettingChange(SettingKey)}回调。
 	 * 
 	 * @param key
 	 *            设置保存key
@@ -81,8 +85,7 @@ public class MyApplication extends Application implements OnSharedPreferenceChan
 	}
 
 	/**
-	 * 注销设置变化监听，该方法和
-	 * {@link #registOnSettingChangeListener(SettingKey, OnSettingChangeListener)}
+	 * 注销设置变化监听，该方法和 {@link #registOnSettingChangeListener(SettingKey, OnSettingChangeListener)}
 	 * 配套使用
 	 * 
 	 * @param key

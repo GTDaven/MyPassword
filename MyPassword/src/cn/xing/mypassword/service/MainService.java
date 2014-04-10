@@ -27,7 +27,7 @@ public class MainService extends Service
 		super.onDestroy();
 		mainbinder.onDestroy();
 	}
-	
+
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId)
 	{
