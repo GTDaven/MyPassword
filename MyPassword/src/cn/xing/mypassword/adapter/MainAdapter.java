@@ -16,7 +16,8 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 import cn.xing.mypassword.R;
 import cn.xing.mypassword.model.Password;
-import cn.xing.mypassword.model.ViewFinder;
+import cn.zdx.lib.annotation.FindViewById;
+import cn.zdx.lib.annotation.XingAnnotationHelper;
 
 /**
  * ÷˜ΩÁ√Ê√‹¬Î  ≈‰∆˜
@@ -121,14 +122,7 @@ public class MainAdapter extends BaseAdapter
 			viewHolder = new ViewHolder();
 			convertView = LayoutInflater.from(context).inflate(R.layout.main_password_item, null);
 			convertView.setTag(viewHolder);
-
-			ViewFinder viewFinder = ViewFinder.create(convertView);
-			viewHolder.titleView = viewFinder.findViewById(R.id.main_item_title);
-			viewHolder.dateView = viewFinder.findViewById(R.id.main_item_date);
-			viewHolder.nameView = viewFinder.findViewById(R.id.main_item_name);
-			viewHolder.passwordView = viewFinder.findViewById(R.id.main_item_password);
-			viewHolder.noteView = viewFinder.findViewById(R.id.main_item_note);
-			viewHolder.noteConainer = viewFinder.findViewById(R.id.main_item_note_container);
+			XingAnnotationHelper.findView(viewHolder, convertView);
 		}
 		else
 		{
@@ -153,11 +147,22 @@ public class MainAdapter extends BaseAdapter
 
 	private class ViewHolder
 	{
+		@FindViewById(R.id.main_item_title)
 		public TextView titleView;
+
+		@FindViewById(R.id.main_item_date)
 		public TextView dateView;
+
+		@FindViewById(R.id.main_item_name)
 		public TextView nameView;
+
+		@FindViewById(R.id.main_item_password)
 		public TextView passwordView;
+
+		@FindViewById(R.id.main_item_note)
 		public TextView noteView;
+
+		@FindViewById(R.id.main_item_note_container)
 		public View noteConainer;
 
 		void bindView(PasswordItem passwordItem)

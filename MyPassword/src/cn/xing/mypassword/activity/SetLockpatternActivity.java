@@ -18,6 +18,7 @@ import cn.xing.mypassword.view.LockPatternView;
 import cn.xing.mypassword.view.LockPatternView.Cell;
 import cn.xing.mypassword.view.LockPatternView.DisplayMode;
 import cn.xing.mypassword.view.LockPatternView.OnPatternListener;
+import cn.zdx.lib.annotation.FindViewById;
 
 /**
  * 设置图案解锁界面
@@ -27,7 +28,10 @@ import cn.xing.mypassword.view.LockPatternView.OnPatternListener;
  */
 public class SetLockpatternActivity extends BaseActivity implements OnPatternListener, Callback
 {
+	@FindViewById(R.id.set_lockpattern_view)
 	private LockPatternView lockPatternView;
+
+	@FindViewById(R.id.set_lockpattern_text)
 	private TextView textView;
 
 	/** 模式 认证 */
@@ -52,7 +56,7 @@ public class SetLockpatternActivity extends BaseActivity implements OnPatternLis
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_set_lockpattern);
 		initActionBar();
-		initView();
+		lockPatternView.setOnPatternListener(this);
 		initMode();
 	}
 
@@ -83,14 +87,6 @@ public class SetLockpatternActivity extends BaseActivity implements OnPatternLis
 		builder.setMessage(R.string.set_lock_pattern_first_message);
 		builder.setNeutralButton(R.string.set_lock_pattern_first_sure, null);
 		builder.show();
-	}
-
-	private void initView()
-	{
-		lockPatternView = (LockPatternView) findViewById(R.id.set_lockpattern_view);
-		textView = (TextView) findViewById(R.id.set_lockpattern_text);
-
-		lockPatternView.setOnPatternListener(this);
 	}
 
 	private void initActionBar()

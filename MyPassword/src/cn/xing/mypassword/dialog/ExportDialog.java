@@ -31,7 +31,8 @@ import cn.xing.mypassword.service.OnGetAllPasswordCallback;
 public class ExportDialog extends ProgressDialog implements OnGetAllPasswordCallback
 {
 	private Mainbinder mainbinder;
-	/** 导出文件名格式化 */
+	
+	/** 导出文件名的格式化 */
 	private SimpleDateFormat fileNameFormat;
 
 	public ExportDialog(Context context, Mainbinder mainbinder)

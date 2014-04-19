@@ -203,7 +203,7 @@ public class MainActivity extends BaseActivity
 	{
 		Builder builder = new Builder(getActivity());
 		builder.setTitle(R.string.action_about_us);
-		builder.setNeutralButton(R.string.action_save, null);
+		builder.setNeutralButton(R.string.common_sure, null);
 		String message = getString(R.string.drawer_about_detail, getVersionName());
 		TextView textView = new TextView(getActivity());
 		textView.setGravity(Gravity.CENTER);

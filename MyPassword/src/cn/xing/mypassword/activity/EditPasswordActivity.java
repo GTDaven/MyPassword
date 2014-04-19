@@ -20,6 +20,7 @@ import cn.xing.mypassword.app.BaseActivity;
 import cn.xing.mypassword.model.Password;
 import cn.xing.mypassword.service.Mainbinder;
 import cn.xing.mypassword.service.OnGetPasswordCallback;
+import cn.zdx.lib.annotation.FindViewById;
 
 /**
  * 密码新增和编辑界面
@@ -44,10 +45,19 @@ public class EditPasswordActivity extends BaseActivity implements OnGetPasswordC
 	/** 数据源 */
 	private Mainbinder mainbinder;
 
+	@FindViewById(R.id.editview_title)
 	private EditText titleView;
+	
+	@FindViewById(R.id.editview_name)
 	private EditText nameView;
+	
+	@FindViewById(R.id.editview_password)
 	private EditText passwordView;
+	
+	@FindViewById(R.id.editview_note)
 	private EditText noteView;
+	
+	@FindViewById(R.id.is_top)
 	private CheckBox isTopView;
 
 	private ServiceConnection serviceConnection = new ServiceConnection()
@@ -85,18 +95,9 @@ public class EditPasswordActivity extends BaseActivity implements OnGetPasswordC
 		}
 
 		initActionBar();
-		findView();
+		
 		Intent intent = new Intent("cn.xing.mypassword");
 		this.bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE);
-	}
-
-	private void findView()
-	{
-		titleView = (EditText) findViewById(R.id.editview_title);
-		nameView = (EditText) findViewById(R.id.editview_name);
-		passwordView = (EditText) findViewById(R.id.editview_password);
-		noteView = (EditText) findViewById(R.id.editview_note);
-		isTopView = (CheckBox) findViewById(R.id.is_top);
 	}
 
 	@Override

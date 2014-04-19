@@ -37,7 +37,7 @@ public class MyApplication extends Application implements OnSharedPreferenceChan
 	 * @param key
 	 *            设置key
 	 * @param defValue
-	 *            没有该设置返回的默认值
+	 *            没有该设置将要返回的默认值
 	 * @return
 	 */
 	public String getString(SettingKey key, String defValue)
@@ -46,7 +46,8 @@ public class MyApplication extends Application implements OnSharedPreferenceChan
 	}
 
 	/**
-	 * 保存设置，调用该方法后会产生 {@link OnSettingChangeListener#onSettingChange(SettingKey)}回调。
+	 * 保存设置，调用该方法后会产生
+	 * {@link OnSettingChangeListener#onSettingChange(SettingKey)}回调。
 	 * 
 	 * @param key
 	 *            设置保存key
@@ -85,7 +86,8 @@ public class MyApplication extends Application implements OnSharedPreferenceChan
 	}
 
 	/**
-	 * 注销设置变化监听，该方法和 {@link #registOnSettingChangeListener(SettingKey, OnSettingChangeListener)}
+	 * 注销设置变化监听，该方法和
+	 * {@link #registOnSettingChangeListener(SettingKey, OnSettingChangeListener)}
 	 * 配套使用
 	 * 
 	 * @param key

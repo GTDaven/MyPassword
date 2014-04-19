@@ -29,7 +29,8 @@ public class PasswordDatabase extends SQLiteOpenHelper
 
 	/**
 	 * 1 ---> 初始版本，含有一个表password（id， create_date， title， user_name，password，
-	 * note） 2 ---> password表添加is_top字段，默认值为零，表示不置顶
+	 * note）<br />
+	 * 2 ---> password表添加is_top字段，默认值为零，表示不置顶
 	 */
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)
@@ -50,7 +51,7 @@ public class PasswordDatabase extends SQLiteOpenHelper
 	 */
 	public long insertPassword(Password password)
 	{
-		long id = 1;
+		long id = -1;
 		try
 		{
 			SQLiteDatabase sqLiteDatabase = getWritableDatabase();
@@ -75,12 +76,12 @@ public class PasswordDatabase extends SQLiteOpenHelper
 	 * 
 	 * <pre>
 	 * // 更新密码
+	 * <code>
 	 * Password password = new Password();
 	 * password.setId(123);
 	 * password.setPassword(&quot;新的密码&quot;);
 	 * passwordDatabase.updatePassword(password);
-	 * </pre>
-	 * 
+	 * </code>
 	 * @param password
 	 *            更新的数据，只需要设置相应的更新项,必须有id属性
 	 * @return 影响的行数 the number of rows affected
@@ -184,7 +185,7 @@ public class PasswordDatabase extends SQLiteOpenHelper
 				password.setPassword(cursor.getString(cursor.getColumnIndex("password")));
 				password.setNote(cursor.getString(cursor.getColumnIndex("note")));
 				password.setTop(cursor.getInt(cursor.getColumnIndex("is_top")) == 1 ? true : false);
-				
+
 				passwords.add(password);
 			}
 		}

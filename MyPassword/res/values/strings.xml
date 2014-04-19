@@ -31,7 +31,7 @@
     <string name="yes">是</string>
     <string name="no">否</string>
     <string name="toast_password_has_deleted">该条密码已经被删除</string>
-    <string name="add_password_note_hint">备注信息&#8230;</string>
+    <string name="add_password_note_hint">备注信息，可以输入你的密保问题和答案</string>
     <string name="add_password_title_hint">输入标题(必须)</string>
     <string name="add_password_name_hint">输入你的账号</string>
     <string name="add_password_password_hint">输入你的密码</string>
@@ -70,5 +70,5 @@
     <string name="import_sure">确 定</string>
     <string name="import_file_failed">文件已损坏，密码导入失败！</string>
     <string name="import_file_successs">导入成功，本次一共导入%d个密码。</string>
-
-</resources>
+    <string name="common_sure">确 定</string>
+</resources>

@@ -256,7 +256,6 @@ public class ImportDialog extends ProgressDialog implements Callback
 			}
 			catch (IOException e)
 			{
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
