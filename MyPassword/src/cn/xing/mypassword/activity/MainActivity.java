@@ -118,10 +118,10 @@ public class MainActivity extends BaseActivity
 				// 软件锁
 				startActivity(new Intent(this, SetLockpatternActivity.class));
 				break;
-			case R.id.action_set_effect:
-				// 列表特效
-				onEffectClick();
-				break;
+			// case R.id.action_set_effect:
+			// // 列表特效
+			// onEffectClick();
+			// break;
 			case R.id.action_about:
 				// 关于
 				onAboutClick();
@@ -166,6 +166,7 @@ public class MainActivity extends BaseActivity
 		return super.onKeyDown(keyCode, event);
 	}
 
+	@SuppressWarnings("unused")
 	private void onEffectClick()
 	{
 		Builder builder = new Builder(this);

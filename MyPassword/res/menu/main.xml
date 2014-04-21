@@ -29,11 +29,14 @@
                     </item>
                 </menu>
             </item>
+            <!--
             <item
                 android:id="@+id/action_set_effect"
                 android:icon="@drawable/ic_action_effect"
                 android:title="@string/action_jazzy_effect">
             </item>
+            -->
+
             <item
                 android:id="@+id/action_about"
                 android:icon="@drawable/ic_action_about"

@@ -22,8 +22,9 @@
     <string name="title_activity_modify_password">修 改</string>
     <string name="action_save">保存</string>
     <string name="action_more">设置</string>
-    <string name="action_import_and_export">导入导出</string>
-    <string name="action_login_password">解锁图案</string>
+    <string name="action_import_and_export">密码导入导出</string>
+    <string name="action_login_password">修改解锁图案</string>
+    <string name="activity_title_eidt_password">解锁图案</string>
     <string name="action_jazzy_effect">列表特效</string>
     <string name="action_about_us">关 于</string>
     <string name="action_exit">退 出</string>
