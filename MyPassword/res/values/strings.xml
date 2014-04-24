@@ -20,12 +20,16 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="title_activity_add_password">添 加</string>
     <string name="title_activity_modify_password">修 改</string>
+    <string name="title_activity_feedback">意见反馈</string>
     <string name="action_save">保存</string>
     <string name="action_more">设置</string>
     <string name="action_import_and_export">密码导入导出</string>
     <string name="action_login_password">修改解锁图案</string>
     <string name="activity_title_eidt_password">解锁图案</string>
     <string name="action_jazzy_effect">列表特效</string>
+    <string name="action_feedback">意见反馈</string>
+    <string name="feedback_send">发 送</string>
+    <string name="feedback_hint">请输入您的反馈或建议，非常感谢！</string>
     <string name="action_about_us">关 于</string>
     <string name="action_exit">退 出</string>
     <string name="alert_delete_message">删除后不可恢复，你确定吗？</string>
@@ -53,7 +57,6 @@
     <string name="set_lock_pattern_step_tips">完成后松开手指</string>
     <string name="no_password_tips">你还没有保存过密码\n点击右上角图标增加几个吧</string>
     <string name="toast_key_back">再按一次 退出程序</string>
-    <string name="title_activity_impot_and_export">导入导出</string>
     <string name="import_form_sd">从SD卡导入</string>
     <string name="export_to_sd">导出到SD卡</string>
     <string name="export_dialog_attention">请您知道：\n1. 导出文件以文本形式保存，没有经过任何加密。请务必注意文件的安全！\n2. 导出的文件保存在SD卡 \"MyPassword/\" 目录下。\n3. 您可以使用第三方软件为导出文件加密。</string>

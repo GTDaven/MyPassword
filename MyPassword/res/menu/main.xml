@@ -36,7 +36,11 @@
                 android:title="@string/action_jazzy_effect">
             </item>
             -->
-
+			<item
+                android:id="@+id/action_feedback"
+                android:icon="@drawable/ic_action_feedback"
+                android:title="@string/action_feedback">
+            </item>
             <item
                 android:id="@+id/action_about"
                 android:icon="@drawable/ic_action_about"

@@ -126,6 +126,10 @@ public class MainActivity extends BaseActivity
 				// 关于
 				onAboutClick();
 				break;
+			case R.id.action_feedback:
+				// 意见反馈
+				onFeedbackClick();
+				break;
 			case R.id.action_exit:
 				// 退出
 				finish();
@@ -135,6 +139,14 @@ public class MainActivity extends BaseActivity
 				break;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+
+	/**
+	 * 意见反馈
+	 */
+	private void onFeedbackClick()
+	{
+		startActivity(new Intent(this, FeedbackActivity.class));
 	}
 
 	@Override

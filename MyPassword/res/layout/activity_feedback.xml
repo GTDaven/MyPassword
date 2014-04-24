@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_background" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="6dp"
+        android:background="@drawable/common_card_background" >
+
+        <EditText
+            android:id="@+id/feedback_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:background="@null"
+            android:gravity="top|left"
+            android:hint="@string/feedback_hint"
+            android:inputType="textMultiLine"
+            android:maxLength="140"
+            android:minLines="5"
+            android:textColor="@color/text_color"
+            android:textSize="15sp" />
+    </ScrollView>
+
+</RelativeLayout>
