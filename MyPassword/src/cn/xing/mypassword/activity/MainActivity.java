@@ -8,9 +8,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.ServiceConnection;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.IBinder;
@@ -217,34 +214,12 @@ public class MainActivity extends BaseActivity
 		Builder builder = new Builder(getActivity());
 		builder.setTitle(R.string.action_about_us);
 		builder.setNeutralButton(R.string.common_sure, null);
-		String message = getString(R.string.drawer_about_detail, getVersionName());
+		String message = getString(R.string.drawer_about_detail, getMyApplication().getVersionName());
 		TextView textView = new TextView(getActivity());
 		textView.setGravity(Gravity.CENTER);
 		textView.setText(message);
 		textView.setTextSize(15);
 		builder.setView(textView);
 		builder.show();
-	}
-
-	/**
-	 * »ñµÃ°æ±¾ºÅ
-	 * 
-	 * @return
-	 */
-	private String getVersionName()
-	{
-		PackageManager packageManager = getActivity().getPackageManager();
-		PackageInfo packInfo;
-		String version = "";
-		try
-		{
-			packInfo = packageManager.getPackageInfo(getActivity().getPackageName(), 0);
-			version = packInfo.versionName;
-		}
-		catch (NameNotFoundException e)
-		{
-			e.printStackTrace();
-		}
-		return version;
 	}
 }

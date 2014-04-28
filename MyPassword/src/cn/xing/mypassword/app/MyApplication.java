@@ -9,6 +9,9 @@ import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Looper;
 import cn.xing.mypassword.model.SettingKey;
 
@@ -107,6 +110,46 @@ public class MyApplication extends Application implements OnSharedPreferenceChan
 				onSettingChangeListenerMap.remove(key);
 			}
 		}
+	}
+
+	/**
+	 * 获取当前版本号
+	 */
+	public String getVersionName()
+	{
+		PackageManager packageManager = getPackageManager();
+		PackageInfo packInfo;
+		String version = "";
+		try
+		{
+			packInfo = packageManager.getPackageInfo(getPackageName(), 0);
+			version = packInfo.versionName;
+		}
+		catch (NameNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+		return version;
+	}
+
+	/**
+	 * 获取当前版本号
+	 */
+	public int getVersionCode()
+	{
+		PackageManager packageManager = getPackageManager();
+		PackageInfo packInfo;
+		int versionCode = 0;
+		try
+		{
+			packInfo = packageManager.getPackageInfo(getPackageName(), 0);
+			versionCode = packInfo.versionCode;
+		}
+		catch (NameNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+		return versionCode;
 	}
 
 	private void checkUIThread()
