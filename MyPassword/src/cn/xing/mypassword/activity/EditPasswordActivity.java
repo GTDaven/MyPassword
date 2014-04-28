@@ -1,5 +1,10 @@
 package cn.xing.mypassword.activity;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 import android.app.ActionBar;
 import android.app.AlertDialog.Builder;
 import android.content.ComponentName;
@@ -12,6 +17,8 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -19,6 +26,7 @@ import cn.xing.mypassword.R;
 import cn.xing.mypassword.app.BaseActivity;
 import cn.xing.mypassword.model.Password;
 import cn.xing.mypassword.service.Mainbinder;
+import cn.xing.mypassword.service.OnGetAllPasswordCallback;
 import cn.xing.mypassword.service.OnGetPasswordCallback;
 import cn.zdx.lib.annotation.FindViewById;
 
@@ -28,7 +36,7 @@ import cn.zdx.lib.annotation.FindViewById;
  * @author zengdexing
  * 
  */
-public class EditPasswordActivity extends BaseActivity implements OnGetPasswordCallback
+public class EditPasswordActivity extends BaseActivity implements OnGetPasswordCallback, OnGetAllPasswordCallback
 {
 	/** 传入参数 ID */
 	public static final String ID = "password_id";
@@ -47,16 +55,16 @@ public class EditPasswordActivity extends BaseActivity implements OnGetPasswordC
 
 	@FindViewById(R.id.editview_title)
 	private EditText titleView;
-	
+
 	@FindViewById(R.id.editview_name)
-	private EditText nameView;
-	
+	private AutoCompleteTextView nameView;
+
 	@FindViewById(R.id.editview_password)
-	private EditText passwordView;
-	
+	private AutoCompleteTextView passwordView;
+
 	@FindViewById(R.id.editview_note)
 	private EditText noteView;
-	
+
 	@FindViewById(R.id.is_top)
 	private CheckBox isTopView;
 
@@ -76,6 +84,8 @@ public class EditPasswordActivity extends BaseActivity implements OnGetPasswordC
 			{
 				mainbinder.getPassword(id, EditPasswordActivity.this);
 			}
+			// 获得所有密码、用户名，用于自动完成
+			mainbinder.getAllPassword(EditPasswordActivity.this);
 		}
 	};
 
@@ -95,7 +105,7 @@ public class EditPasswordActivity extends BaseActivity implements OnGetPasswordC
 		}
 
 		initActionBar();
-		
+
 		Intent intent = new Intent("cn.xing.mypassword");
 		this.bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE);
 	}
@@ -194,11 +204,13 @@ public class EditPasswordActivity extends BaseActivity implements OnGetPasswordC
 			password.setTop(isTopView.isChecked());
 			if (MODE == MODE_ADD)
 			{
+				// 添加
 				password.setCreateDate(System.currentTimeMillis());
 				mainbinder.insertPassword(password);
 			}
 			else
 			{
+				// 修改密码
 				password.setId(id);
 				mainbinder.updatePassword(password);
 			}
@@ -221,5 +233,24 @@ public class EditPasswordActivity extends BaseActivity implements OnGetPasswordC
 		noteView.setText(password.getNote());
 		isTopView.setChecked(password.isTop());
 		titleView.setSelection(titleView.getText().length());
+	}
+
+	@Override
+	public void onGetAllPassword(List<Password> passwords)
+	{
+		// 去掉重复
+		Set<String> arrays = new HashSet<String>();
+		for (int i = 0; i < passwords.size(); i++)
+		{
+			Password password = passwords.get(i);
+			arrays.add(password.getUserName());
+			arrays.add(password.getPassword());
+		}
+
+		// 自动完成
+		int id = R.layout.simple_dropdown_item;
+		ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, id, new ArrayList<String>(arrays));
+		nameView.setAdapter(arrayAdapter);
+		passwordView.setAdapter(arrayAdapter);
 	}
 }

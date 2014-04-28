@@ -19,7 +19,7 @@
             android:gravity="top|left"
             android:hint="@string/feedback_hint"
             android:inputType="textMultiLine"
-            android:maxLength="140"
+            android:maxLength="500"
             android:minLines="5"
             android:textColor="@color/text_color"
             android:textSize="15sp" />
