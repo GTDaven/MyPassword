@@ -218,7 +218,7 @@ public class MainActivity extends BaseActivity
 		TextView textView = new TextView(getActivity());
 		textView.setGravity(Gravity.CENTER);
 		textView.setText(message);
-		textView.setTextSize(15);
+		textView.setTextSize(18);
 		builder.setView(textView);
 		builder.show();
 	}

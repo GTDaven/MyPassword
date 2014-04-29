@@ -165,6 +165,9 @@ public class MainAdapter extends BaseAdapter
 		@FindViewById(R.id.main_item_note_container)
 		public View noteConainer;
 
+		@FindViewById(R.id.main_item_top)
+		public View topIconView;
+
 		void bindView(PasswordItem passwordItem)
 		{
 			titleView.setText(passwordItem.password.getTitle());
@@ -185,10 +188,12 @@ public class MainAdapter extends BaseAdapter
 
 			if (passwordItem.password.isTop())
 			{
+				topIconView.setVisibility(View.VISIBLE);
 				dateView.setTextColor(context.getResources().getColor(R.color.title_color));
 			}
 			else
 			{
+				topIconView.setVisibility(View.GONE);
 				dateView.setTextColor(context.getResources().getColor(R.color.text_color));
 			}
 		}
