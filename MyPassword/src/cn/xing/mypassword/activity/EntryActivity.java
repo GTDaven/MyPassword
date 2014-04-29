@@ -18,6 +18,7 @@ import cn.xing.mypassword.view.LockPatternView;
 import cn.xing.mypassword.view.LockPatternView.Cell;
 import cn.xing.mypassword.view.LockPatternView.DisplayMode;
 import cn.xing.mypassword.view.LockPatternView.OnPatternListener;
+import cn.zdx.lib.annotation.FindViewById;
 
 /**
  * Èë¿Ú£¬»¶Ó­Ò³
@@ -27,6 +28,7 @@ import cn.xing.mypassword.view.LockPatternView.OnPatternListener;
  */
 public class EntryActivity extends BaseActivity implements Callback, OnPatternListener
 {
+	@FindViewById(R.id.entry_activity_iconview)
 	private View iconView;
 	private Handler handler;
 
@@ -34,8 +36,13 @@ public class EntryActivity extends BaseActivity implements Callback, OnPatternLi
 	private final int MESSAGE_CLEAR_LOCKPATTERNVIEW = 3;
 	private final int MESSAGE_START_SETLOCKPATTERN = 4;
 
+	@FindViewById(R.id.entry_activity_bg)
 	private View backgroundView;
+	
+	@FindViewById(R.id.entry_activity_lockPatternView)
 	private LockPatternView lockPatternView;
+	
+	@FindViewById(R.id.entry_activity_tips)
 	private TextView tipsView;
 
 	@Override
@@ -45,8 +52,7 @@ public class EntryActivity extends BaseActivity implements Callback, OnPatternLi
 		setContentView(R.layout.activity_entry);
 
 		handler = new Handler(this);
-
-		findView();
+		lockPatternView.setOnPatternListener(this);
 
 		List<Cell> cells = LockPatternUtil.getLocalCell(this);
 		if (cells.size() == 0)
@@ -86,15 +92,6 @@ public class EntryActivity extends BaseActivity implements Callback, OnPatternLi
 				break;
 		}
 		return true;
-	}
-
-	private void findView()
-	{
-		iconView = findViewById(R.id.entry_activity_iconview);
-		backgroundView = findViewById(R.id.entry_activity_bg);
-		lockPatternView = (LockPatternView) findViewById(R.id.entry_activity_lockPatternView);
-		lockPatternView.setOnPatternListener(this);
-		tipsView = (TextView) findViewById(R.id.entry_activity_tips);
 	}
 
 	/**

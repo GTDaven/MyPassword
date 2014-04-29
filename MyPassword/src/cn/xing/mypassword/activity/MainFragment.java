@@ -89,7 +89,7 @@ public class MainFragment extends BaseFragment implements OnGetAllPasswordCallba
 	 */
 	private JazzyEffect getJazzyEffect()
 	{
-		String strKey = getBaseActivity().getSetting(SettingKey.JAZZY_EFFECT, JazzyHelper.STANDARD + "");
+		String strKey = getBaseActivity().getSetting(SettingKey.JAZZY_EFFECT, JazzyHelper.TILT + "");
 		JazzyEffect jazzyEffect = JazzyHelper.valueOf(Integer.valueOf(strKey));
 		return jazzyEffect;
 	}

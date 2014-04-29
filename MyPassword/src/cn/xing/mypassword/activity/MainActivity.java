@@ -8,9 +8,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.ServiceConnection;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.IBinder;
@@ -118,13 +115,17 @@ public class MainActivity extends BaseActivity
 				// 软件锁
 				startActivity(new Intent(this, SetLockpatternActivity.class));
 				break;
-			case R.id.action_set_effect:
-				// 列表特效
-				onEffectClick();
-				break;
+			// case R.id.action_set_effect:
+			// // 列表特效
+			// onEffectClick();
+			// break;
 			case R.id.action_about:
 				// 关于
 				onAboutClick();
+				break;
+			case R.id.action_feedback:
+				// 意见反馈
+				onFeedbackClick();
 				break;
 			case R.id.action_exit:
 				// 退出
@@ -135,6 +136,14 @@ public class MainActivity extends BaseActivity
 				break;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+
+	/**
+	 * 意见反馈
+	 */
+	private void onFeedbackClick()
+	{
+		startActivity(new Intent(this, FeedbackActivity.class));
 	}
 
 	@Override
@@ -166,6 +175,7 @@ public class MainActivity extends BaseActivity
 		return super.onKeyDown(keyCode, event);
 	}
 
+	@SuppressWarnings("unused")
 	private void onEffectClick()
 	{
 		Builder builder = new Builder(this);
@@ -203,35 +213,13 @@ public class MainActivity extends BaseActivity
 	{
 		Builder builder = new Builder(getActivity());
 		builder.setTitle(R.string.action_about_us);
-		builder.setNeutralButton(R.string.action_save, null);
-		String message = getString(R.string.drawer_about_detail, getVersionName());
+		builder.setNeutralButton(R.string.common_sure, null);
+		String message = getString(R.string.drawer_about_detail, getMyApplication().getVersionName());
 		TextView textView = new TextView(getActivity());
 		textView.setGravity(Gravity.CENTER);
 		textView.setText(message);
-		textView.setTextSize(15);
+		textView.setTextSize(18);
 		builder.setView(textView);
 		builder.show();
-	}
-
-	/**
-	 * 获得版本号
-	 * 
-	 * @return
-	 */
-	private String getVersionName()
-	{
-		PackageManager packageManager = getActivity().getPackageManager();
-		PackageInfo packInfo;
-		String version = "";
-		try
-		{
-			packInfo = packageManager.getPackageInfo(getActivity().getPackageName(), 0);
-			version = packInfo.versionName;
-		}
-		catch (NameNotFoundException e)
-		{
-			e.printStackTrace();
-		}
-		return version;
 	}
 }

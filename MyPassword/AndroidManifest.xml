@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="cn.xing.mypassword"
-    android:versionCode="9"
-    android:versionName="2.1.0" >
+    android:versionCode="11"
+    android:versionName="3.1.0" >
 
     <uses-sdk
         android:minSdkVersion="14"
@@ -30,7 +30,7 @@
             android:value="533592ec56240b225e030413" />
         <meta-data
             android:name="UMENG_CHANNEL"
-            android:value="debug" />
+            android:value="0" />
 
         <!-- 主界面 -->
         <activity
@@ -75,9 +75,11 @@
             android:label="@string/action_login_password"
             android:screenOrientation="portrait" >
         </activity>
+        
+        <!-- 意见反馈界面 -->
         <activity
-            android:name="cn.xing.mypassword.activity.ImpotAndExportActivity"
-            android:label="@string/title_activity_impot_and_export"
+            android:name="cn.xing.mypassword.activity.FeedbackActivity"
+            android:label="@string/title_activity_feedback"
             android:screenOrientation="portrait" >
         </activity>
     </application>

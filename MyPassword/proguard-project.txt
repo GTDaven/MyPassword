@@ -18,3 +18,18 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+
+# 友盟 统计SDK
+-keepclassmembers class * {
+	public <init>(org.json.JSONObject);
+}
+
+# 友盟意见反馈
+# 这是由于SDK中的部分代码使用反射来调用构造函数，
+# 如果被混淆掉， 在运行时会提示"NoSuchMethod"错误。 
+# 另外，由于SDK需要引用导入工程的资源文件，通过了反射机制得到资源引用文件R.java，
+# 但是在开发者通过proguard等混淆/优化工具处理apk时，proguard可能会将R.java删除，
+# 如果遇到这个问题，请在proguard配置文件中添加keep命令如：
+-keep public class cn.xing.mypassword.R$*{
+	public static final int *;
+}
