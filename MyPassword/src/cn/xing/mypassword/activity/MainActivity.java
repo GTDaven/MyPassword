@@ -24,6 +24,7 @@ import cn.xing.mypassword.model.SettingKey;
 import cn.xing.mypassword.service.Mainbinder;
 
 import com.umeng.analytics.MobclickAgent;
+import com.umeng.update.UmengUpdateAgent;
 
 /**
  * Ö÷½çÃæ
@@ -61,6 +62,8 @@ public class MainActivity extends BaseActivity
 
 		Intent intent = new Intent("cn.xing.mypassword");
 		this.bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE);
+
+		UmengUpdateAgent.update(this);
 	}
 
 	@Override
