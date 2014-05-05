@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="msg_import_search_delay_500" type="id"/>
+    <item name="msg_import" type="id"/>
+
+</resources>

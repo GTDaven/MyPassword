@@ -1,0 +1,48 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:mp="http://schemas.android.com/apk/res/cn.xing.mypassword"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="cn.xing.mypassword.activity.MainActivity" >
+
+    <com.twotoasters.jazzylistview.JazzyListView
+        android:id="@+id/main_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:cacheColorHint="#00000000"
+        android:divider="@null"
+        android:fastScrollEnabled="true"
+        android:listSelector="@android:color/transparent"
+        mp:effect="tilt"
+        mp:max_velocity="0"
+        mp:only_animate_fling="false"
+        mp:only_animate_new_items="false" />
+
+    <RelativeLayout
+        android:id="@+id/main_no_passsword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" >
+
+        <ImageView
+            android:id="@+id/main_no_password_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/no_password_icon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/main_no_password_image"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="60dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="@string/no_password_tips"
+            android:textColor="@color/text_color"
+            android:textSize="14sp" />
+    </RelativeLayout>
+
+</RelativeLayout>
