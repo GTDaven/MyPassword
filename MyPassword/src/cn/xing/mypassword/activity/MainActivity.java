@@ -36,6 +36,7 @@ public class MainActivity extends BaseActivity
 {
 	/** สýพÝิด */
 	private Mainbinder mainbinder;
+	private long lastBackKeyTime;
 
 	private ServiceConnection serviceConnection = new ServiceConnection()
 	{
@@ -51,8 +52,6 @@ public class MainActivity extends BaseActivity
 			mainbinder = (Mainbinder) service;
 		}
 	};
-
-	private long lastBackKeyTime;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
