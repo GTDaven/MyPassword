@@ -62,6 +62,7 @@ public class MainActivity extends BaseActivity
 		Intent intent = new Intent("cn.xing.mypassword");
 		this.bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE);
 
+		// ÓÑÃË×Ô¶¯Éý¼¶
 		UmengUpdateAgent.update(this);
 	}
 
