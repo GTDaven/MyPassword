@@ -29,9 +29,11 @@
     <string name="action_login_password">修改解锁图案</string>
     <string name="activity_title_eidt_password">解锁图案</string>
     <string name="action_jazzy_effect">列表特效</string>
+    <string name="action_jazzy_effect_introduction">设置列表滑动时的动画特效，当保存的密码多余5条时，才能看到明显的效果</string>
+    <string name="action_jazzy_effect_toast">密码太少，多保存几个再试试？</string>
     <string name="action_feedback">意见反馈</string>
     <string name="feedback_send">发 送</string>
-    <string name="feedback_hint">我的成长离不开您的支持，如有必要，还请留下您的联系方式。</string>
+    <string name="feedback_hint">也许您的反馈就是下一个引爆点，如有必要，还请留下您的联系方式。</string>
     <string name="feedback_sending">正在发送，请稍候&#8230;</string>
     <string name="feedback_thanks">非常感谢您的反馈</string>
     <string name="action_about_us">关 于</string>
@@ -64,7 +66,7 @@
     <string name="import_form_sd">从SD卡导入</string>
     <string name="export_to_sd">导出到SD卡</string>
     <string name="export_dialog_attention">请您知道：\n1. 导出文件以文本形式保存，没有经过任何加密。请务必注意文件的安全！\n2. 导出的文件保存在SD卡 \"MyPassword/\" 目录下。\n3. 您可以使用第三方软件为导出文件加密。</string>
-    <string name="export_dialog_i_known">我知道了</string>
+    <string name="i_known">我知道了</string>
     <string name="export_dialog_cancle">暂不导出</string>
     <string name="export_no_sdcard">SD卡不可用</string>
     <string name="export_ing">正在导出，请稍候&#8230;</string>
@@ -79,4 +81,5 @@
     <string name="import_file_failed">文件已损坏，密码导入失败！</string>
     <string name="import_file_successs">导入成功，本次一共导入%d个密码。</string>
     <string name="common_sure">确 定</string>
-</resources>
+
+</resources>

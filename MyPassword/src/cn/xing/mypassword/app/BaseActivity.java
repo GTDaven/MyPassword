@@ -50,7 +50,12 @@ public class BaseActivity extends Activity
 
 	public void showToast(int id)
 	{
-		Toast.makeText(this, id, Toast.LENGTH_SHORT).show();
+		showToast(id, Toast.LENGTH_SHORT);
+	}
+
+	public void showToast(int id, int duration)
+	{
+		Toast.makeText(this, id, duration).show();
 	}
 
 	public MyApplication getMyApplication()

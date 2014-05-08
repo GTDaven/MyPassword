@@ -6,5 +6,8 @@ public enum SettingKey
 	LOCK_PATTERN,
 
 	/** 列表滑动动画 */
-	JAZZY_EFFECT;
+	JAZZY_EFFECT,
+	
+	/** 是否提示过 */
+	JAZZY_EFFECT_INTRODUCTION;
 }

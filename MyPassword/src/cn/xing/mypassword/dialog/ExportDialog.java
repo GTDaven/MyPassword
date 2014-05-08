@@ -53,7 +53,7 @@ public class ExportDialog extends ProgressDialog implements OnGetAllPasswordCall
 		Builder builder = new Builder(getContext());
 		builder.setTitle(R.string.export_to_sd);
 		builder.setMessage(R.string.export_dialog_attention);
-		builder.setNeutralButton(R.string.export_dialog_i_known, new DialogInterface.OnClickListener()
+		builder.setNeutralButton(R.string.i_known, new DialogInterface.OnClickListener()
 		{
 			@Override
 			public void onClick(DialogInterface dialog, int which)
@@ -137,7 +137,7 @@ public class ExportDialog extends ProgressDialog implements OnGetAllPasswordCall
 
 					Builder builder = new Builder(getContext());
 					builder.setMessage(msg);
-					builder.setNeutralButton(R.string.export_dialog_i_known, null);
+					builder.setNeutralButton(R.string.i_known, null);
 					Dialog dialog = builder.create();
 					dialog.setCanceledOnTouchOutside(false);
 					dialog.show();

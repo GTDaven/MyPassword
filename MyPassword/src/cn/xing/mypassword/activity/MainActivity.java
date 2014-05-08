@@ -6,6 +6,7 @@ import android.app.AlertDialog.Builder;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
@@ -118,10 +119,10 @@ public class MainActivity extends BaseActivity
 				// 软件锁
 				startActivity(new Intent(this, SetLockpatternActivity.class));
 				break;
-			// case R.id.action_set_effect:
-			// // 列表特效
-			// onEffectClick();
-			// break;
+			case R.id.action_set_effect:
+				// 列表特效
+				onEffectClick();
+				break;
 			case R.id.action_about:
 				// 关于
 				onAboutClick();
@@ -178,23 +179,40 @@ public class MainActivity extends BaseActivity
 		return super.onKeyDown(keyCode, event);
 	}
 
-	@SuppressWarnings("unused")
 	private void onEffectClick()
 	{
-		Builder builder = new Builder(this);
-		builder.setTitle(R.string.action_jazzy_effect);
-
-		final String[] effectArray = getResources().getStringArray(R.array.jazzy_effects);
-		builder.setItems(effectArray, new DialogInterface.OnClickListener()
+		if (getSetting(SettingKey.JAZZY_EFFECT_INTRODUCTION, "false").equals("false"))
 		{
-			@Override
-			public void onClick(DialogInterface dialog, int which)
+			putSetting(SettingKey.JAZZY_EFFECT_INTRODUCTION, "true");
+			Builder builder = new Builder(this);
+			builder.setMessage(R.string.action_jazzy_effect_introduction);
+			builder.setNeutralButton(R.string.i_known, new OnClickListener()
 			{
-				getActivity().putSetting(SettingKey.JAZZY_EFFECT, which + "");
-				onEventEffect(effectArray[which]);
-			}
-		});
-		builder.show();
+				@Override
+				public void onClick(DialogInterface dialog, int which)
+				{
+					onEffectClick();
+				}
+			});
+			builder.show();
+		}
+		else
+		{
+			Builder builder = new Builder(this);
+			builder.setTitle(R.string.action_jazzy_effect);
+
+			final String[] effectArray = getResources().getStringArray(R.array.jazzy_effects);
+			builder.setItems(effectArray, new DialogInterface.OnClickListener()
+			{
+				@Override
+				public void onClick(DialogInterface dialog, int which)
+				{
+					getActivity().putSetting(SettingKey.JAZZY_EFFECT, which + "");
+					onEventEffect(effectArray[which]);
+				}
+			});
+			builder.show();
+		}
 	}
 
 	/**

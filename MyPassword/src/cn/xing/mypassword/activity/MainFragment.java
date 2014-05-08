@@ -11,6 +11,7 @@ import android.os.IBinder;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 import cn.xing.mypassword.R;
 import cn.xing.mypassword.adapter.MainAdapter;
 import cn.xing.mypassword.app.BaseFragment;
@@ -80,7 +81,7 @@ public class MainFragment extends BaseFragment implements OnGetAllPasswordCallba
 	 */
 	private JazzyEffect getJazzyEffect()
 	{
-		String strKey = getBaseActivity().getSetting(SettingKey.JAZZY_EFFECT, JazzyHelper.TILT + "");
+		String strKey = getBaseActivity().getSetting(SettingKey.JAZZY_EFFECT, JazzyHelper.STANDARD + "");
 		JazzyEffect jazzyEffect = JazzyHelper.valueOf(Integer.valueOf(strKey));
 		return jazzyEffect;
 	}
@@ -164,6 +165,10 @@ public class MainFragment extends BaseFragment implements OnGetAllPasswordCallba
 		if (listView != null && key == SettingKey.JAZZY_EFFECT)
 		{
 			listView.setTransitionEffect(getJazzyEffect());
+			if (listView.getCount() < 6)
+			{
+				showToast(R.string.action_jazzy_effect_toast, Toast.LENGTH_LONG);
+			}
 		}
 	}
 
