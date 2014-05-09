@@ -1,4 +1,4 @@
-我的密码
+密码管理
 ==============================
 <img src="MyPassword/ic_launcher-web.png" width="256px"/>
 
@@ -19,6 +19,7 @@ QQ账号？微信号？邮箱密码？网站通行证？种种密码设置令人
 ###4.0.0 已完成
 - 集成友盟自动更新
 - 优化密码显示：更简洁、易用
+- 统一ActionBar和EditText主题
 
 ###3.1.0 已完成
 - 增加修改、编辑密码的自动提示功能
@@ -47,5 +48,3 @@ QQ账号？微信号？邮箱密码？网站通行证？种种密码设置令人
 <img src="Screenshot/03.png" width="220px"/>
 <img src="Screenshot/04.png" width="220px"/>
 <img src="Screenshot/05.png" width="220px"/>
-
-* 注意事项:工程源码不得打包发布到应用市场 
