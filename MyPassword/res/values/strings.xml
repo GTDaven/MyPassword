@@ -81,5 +81,5 @@
     <string name="import_file_failed">文件已损坏，密码导入失败！</string>
     <string name="import_file_successs">导入成功，本次一共导入%d个密码。</string>
     <string name="common_sure">确 定</string>
-
+    <string name="package_name">cn.xing.mypassword</string>
 </resources>

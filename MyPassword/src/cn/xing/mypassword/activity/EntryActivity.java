@@ -38,10 +38,10 @@ public class EntryActivity extends BaseActivity implements Callback, OnPatternLi
 
 	@FindViewById(R.id.entry_activity_bg)
 	private View backgroundView;
-	
+
 	@FindViewById(R.id.entry_activity_lockPatternView)
 	private LockPatternView lockPatternView;
-	
+
 	@FindViewById(R.id.entry_activity_tips)
 	private TextView tipsView;
 
@@ -64,6 +64,16 @@ public class EntryActivity extends BaseActivity implements Callback, OnPatternLi
 
 		tipsView.setText("");
 		initAnimation();
+		checkPackageName();
+	}
+
+	/**
+	 * 检查包名，防止打包党简简单单二次打包
+	 */
+	private void checkPackageName()
+	{
+		if (!getPackageName().equals(getString(R.string.package_name)))
+			finish();
 	}
 
 	@Override
